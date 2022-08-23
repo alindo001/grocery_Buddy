@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Grocery Buddy</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,9 +24,7 @@
         <input type="submit">
     </form>
     <br>
-    <form action="" id="editInput">
-        <input class="show" type=""id='editInput'>
-    </form>
+    
 
 <ul>
     <% todos.forEach( el => { %>
@@ -32,12 +32,18 @@
             <span>Grocery Item: <%= el.todo%></span>
             <span>Store Name: <%= el.storeName%></span>
             <span>Price: $<%= el.price%></span>
-            <span class='edit'id="">..Edit..</span>
-            <span class='del'> Delete </span>
+
+            <!-- <form action="/todos/editPrice" method="PUT">
+                <input type="number" step="0.01" placeholder="Update Price">
+            </form> -->
+
+            <span class='del'><i class="material-icons">delete</i></span>
         </li>
     <% }) %>    
     </ul>
 
     <script src="js/main.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

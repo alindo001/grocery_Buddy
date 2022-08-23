@@ -57,6 +57,17 @@ module.exports = {
             console.log(err)
         }
     },
+    editPrice: async (req, res)=>{
+        try{
+            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+                price: 1,
+            })
+            console.log('Price Updated')
+            res.json('Marked Incomplete')
+        }catch(err){
+            console.log(err)
+        }
+    },
 
 
 }    
