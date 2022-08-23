@@ -1,0 +1,23 @@
+h1{
+    color: red;
+}
+.completed{
+    text-decoration: line-through;
+    color: gray;
+}
+.not{
+    text-decoration: underline;
+}
+
+form {
+    width: 50%;
+  }
+  
+.hide {
+    display: none;
+  }
+  
+.show {
+    display: block;
+    
+  }

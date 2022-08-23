@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Buddy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Enter Grocery Item</h1>
+   
+   
+
+   
+
+    <form action="/todos/createTodo" method='POST'>
+        <input type="text" placeholder="Enter Item Name" name='todoItem'>
+        <input type="text" placeholder="Enter Store Name" name='storeName'>
+        <input type="number" placeholder="Enter Item Price" name="price" step="00.01">
+        
+        <input type="submit">
+    </form>
+    <br>
+    <form action="" id="editInput">
+        <input class="show" type=""id='editInput'>
+    </form>
+
+<ul>
+    <% todos.forEach( el => { %>
+        <li class='todoItem' data-id='<%=el._id%>'>
+            <span>Grocery Item: <%= el.todo%></span>
+            <span>Store Name: <%= el.storeName%></span>
+            <span>Price: $<%= el.price%></span>
+            <span class='edit'id="">..Edit..</span>
+            <span class='del'> Delete </span>
+        </li>
+    <% }) %>    
+    </ul>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
