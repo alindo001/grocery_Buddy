@@ -10,13 +10,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Enter Grocery Item</h1>
+
+    <div class="container center">
+
+        <h1>Enter Grocery Item</h1>
+    </div>
    
    
 
-   
 
-    <form action="/todos/createTodo" method='POST'>
+<div class="container center">
+    <form action="/todos/createTodo" method='POST' class="container ">
         <input type="text" placeholder="Enter Item Name" name='todoItem'>
         <input type="text" placeholder="Enter Store Name" name='storeName'>
         <input type="number" placeholder="Enter Item Price" name="price" step="00.01">
@@ -24,26 +28,29 @@
         <input type="submit">
     </form>
     <br>
+</div>
+<div class="container center">
+
     
-
-<ul>
-    <% todos.forEach( el => { %>
-        <li class='todoItem' data-id='<%=el._id%>'>
-            <span>Grocery Item: <%= el.todo%></span>
-            <span>Store Name: <%= el.storeName%></span>
-            <span>Price: $<%= el.price%></span>
-
-            <!-- <form action="/todos/editPrice" method="PUT">
-                <input type="number" step="0.01" placeholder="Update Price">
-            </form> -->
-
-            <span class='del'><i class="material-icons">delete</i></span>
-        </li>
-    <% }) %>    
-    </ul>
-
-    <script src="js/main.js"></script>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-</html>
+    <ul>
+        <% todos.forEach( el => { %>
+            <li class='todoItem' data-id='<%=el._id%>'>
+                <span>Grocery Item: <%= el.todo%></span>
+                <span>Store Name: <%= el.storeName%></span>
+                <span>Price: $<%= el.price%></span>
+                
+                <!-- <form action="/todos/editPrice" method="PUT">
+                    <input type="number" step="0.01" placeholder="Update Price">
+                </form> -->
+                
+                <span class='del'><i class="material-icons">delete</i></span>
+            </li>
+            <% }) %>    
+        </ul>
+    </div>
+        
+        <script src="js/main.js"></script>
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
+    </html>
