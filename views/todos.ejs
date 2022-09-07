@@ -19,10 +19,17 @@
    
 
 
-<div class="container center">
+<div class="container center input-field">
     <form action="/todos/createTodo" method='POST' class="container ">
-        <input type="text" placeholder="Enter Item Name" name='todoItem'>
-        <input type="text" placeholder="Enter Store Name" name='storeName'>
+        <input type="text" placeholder="Eggs" name='todoItem' value="Eggs">
+        <!-- <select class="icons"> -->
+        <select class="icons" type="text" placeholder="Enter Store Name" name='storeName'>
+            <option value="" selected disabled>Enter Store Name</option>
+            <option value="Aldi" data-icon="https://corporate.aldi.us/fileadmin/_processed_/7/6/csm_aldi_logo_2017_cbae513198.jpg">Aldi</option>
+            <option value="Publix" data-icon="data:image/png;base64,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">Publix</option>
+            <option value="Target" data-icon="https://corporate.target.com/_media/TargetCorp/Press/B-roll%20and%20Press%20Materials/Logos/Target_Bullseye-Logo_Red.jpg?preset=640w">Target</option>
+            <option value="Walmart" data-icon="https://www.freepnglogos.com/uploads/walmart-logo-24.jpg">Walmart</option>
+        </select>
         <input type="number" placeholder="Enter Item Price" name="price" step="00.01">
         
         <input type="submit">
@@ -35,7 +42,7 @@
     <ul>
         <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <span>Grocery Item: <%= el.todo%></span>
+                <span> <%= el.todo%></span>
                 <span>Store Name: <%= el.storeName%></span>
                 <span>Price: $<%= el.price%></span>
                 
@@ -52,5 +59,12 @@
         <script src="js/main.js"></script>
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        <script> document.addEventListener('DOMContentLoaded', function(){
+            var sel = document.querySelector('select');
+            M.FormSelect.init(sel)
+        }) 
+        </script>
+
     </body>
     </html>
