@@ -1,3 +1,4 @@
+const { render } = require('ejs')
 const Todo = require('../models/Todo')
 
 module.exports = {
@@ -6,6 +7,7 @@ module.exports = {
             const todoItems = await Todo.find()
             // const itemsLeft = await Todo.countDocuments({completed: false})
             res.render('todos.ejs', {todos: todoItems})
+            console.log('Test!!!!!!!!!!!!!')
         }catch(err){
             console.log(err)
         }
@@ -58,14 +60,15 @@ module.exports = {
         }
     },
     getEdit: async (req,res)=>{
-        try{
-            const todoItems = await Todo.findOne({
-                _id: req.params.id
-            }).lean()
-            res.render('edit.ejs', {todos: todoItems})
-        }catch(err){
-            console.log(err)
-        }
+        res.render('items.ejs')
+        // try{
+        //     const todoItems = await Todo.findOne({
+        //         _id:req.body.todoIdFromJSFile
+        //     })
+        //     res.render('edit', {todos: todoItems})
+        // }catch(err){
+        //     console.log(err)
+        // }
     },
 
 

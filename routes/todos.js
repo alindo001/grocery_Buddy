@@ -4,7 +4,7 @@ const todosController = require('../controllers/todos')
 
 router.get('/', todosController.getTodos)
 
-router.get("/edit", todosController.getEdit)
+router.put("/edit/:id", todosController.getEdit)
 
 router.post('/createTodo', todosController.createTodo)
 
