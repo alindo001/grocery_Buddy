@@ -4,7 +4,7 @@ const todosController = require('../controllers/todos')
 
 router.get('/', todosController.getTodos)
 
-
+router.get("/edit", todosController.getEdit)
 
 router.post('/createTodo', todosController.createTodo)
 
@@ -12,7 +12,7 @@ router.put('/markComplete', todosController.markComplete)
 
 router.put('/markIncomplete', todosController.markIncomplete)
 
-router.put('/editPrice', todosController.editPrice)
+
 
 router.delete('/deleteTodo', todosController.deleteTodo)
 

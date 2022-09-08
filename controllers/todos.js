@@ -51,19 +51,18 @@ module.exports = {
         console.log(req.body.todoIdFromJSFile)
         try{
             await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
-            console.log('Deleted Todo')
+            console.log('Deleted Item')
             res.json('Deleted It')
         }catch(err){
             console.log(err)
         }
     },
-    editPrice: async (req, res)=>{
+    getEdit: async (req,res)=>{
         try{
-            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-                price: 1,
-            })
-            console.log('Price Updated')
-            res.json('Marked Incomplete')
+            const todoItems = await Todo.findOne({
+                _id: req.params.id
+            }).lean()
+            res.render('edit.ejs', {todos: todoItems})
         }catch(err){
             console.log(err)
         }

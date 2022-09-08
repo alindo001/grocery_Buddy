@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Grocery Buddy</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -40,16 +41,12 @@
 
     
     <ul>
-        <% todos.forEach( el => { %>
+        <% todos.forEach( (el,i) => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
-                <span> <%= el.todo%></span>
-                <span>Store Name: <%= el.storeName%></span>
+                <span data-id='<%=el._id%>'> <%= el.todo%></span>
+                <span> <%= el.storeName %></span>
                 <span>Price: $<%= el.price%></span>
-                
-                <!-- <form action="/todos/editPrice" method="PUT">
-                    <input type="number" step="0.01" placeholder="Update Price">
-                </form> -->
-                
+                <a href="/edit/<%= el._id %>"class="btn-float btn btn-small"><i class="material-icons fa-edit fas"></i></a>
                 <span class='del'><i class="material-icons">delete</i></span>
             </li>
             <% }) %>    
@@ -59,12 +56,15 @@
         <script src="js/main.js"></script>
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        
-        <script> document.addEventListener('DOMContentLoaded', function(){
-            var sel = document.querySelector('select');
-            M.FormSelect.init(sel)
-        }) 
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                var sel = document.querySelectorAll('select');
+                
+                M.FormSelect.init(sel)
+            })
         </script>
+            
+        
 
     </body>
     </html>

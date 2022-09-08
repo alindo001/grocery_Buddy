@@ -21,3 +21,7 @@ form {
     display: block;
     
   }
+
+  .edit{
+    display: none;
+  }

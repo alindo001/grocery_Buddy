@@ -72,9 +72,5 @@ async function markIncomplete(){
     }
 }
 
-document.querySelector('.edit').addEventListener('click', edit)
-function edit(){
-    var text = document.getElementById("editInput");
-    text.classList.toggle("hide");
-    text.classList.toggle("show");
-}
+
+
