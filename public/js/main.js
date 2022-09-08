@@ -1,4 +1,4 @@
-const { response } = require("express")
+
 
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
