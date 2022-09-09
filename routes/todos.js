@@ -6,6 +6,8 @@ router.get('/', todosController.getTodos)
 
 router.get('/edit/:id', todosController.getEdit)
 
+router.put('/edit/:id', todosController.editItem)
+
 router.post('/createTodo', todosController.createTodo)
 
 router.put('/markComplete', todosController.markComplete)

@@ -7,7 +7,6 @@ module.exports = {
             const todoItems = await Todo.find()
             // const itemsLeft = await Todo.countDocuments({completed: false})
             res.render('todos.ejs', {todos: todoItems})
-            console.log('Test!!!!!!!!!!!!!')
         }catch(err){
             console.log(err)
         }
@@ -60,15 +59,25 @@ module.exports = {
         }
     },
     getEdit: async (req,res)=>{
-      
-        
         try{
             const todoItems = await Todo.findById(req.params.id)            
             res.render('edit.ejs', {todos: todoItems, price:todoItems.price, storeName: todoItems.storeName, _id:todoItems._id})
-            console.log(todoItems)
         }catch(err){
             console.log(err)
         }
+    },
+    editItem: async (req, res) => {
+        try{
+            let item = await Todo.findByIdAndUpdate(req.params.id,{
+                price: req.body.price,
+            })
+            console.log("Price Updated")
+            res.redirect('/todos')
+        }catch(err){
+            console.err(err)
+        }
+
+
     },
 
 
