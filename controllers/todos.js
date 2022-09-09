@@ -4,7 +4,7 @@ const Todo = require('../models/Todo')
 module.exports = {
     getTodos: async (req,res)=>{
         try{
-            const todoItems = await Todo.find()
+            const todoItems = await Todo.find().sort({price:!"desc"})
             res.render('todos.ejs', {todos: todoItems})
         }catch(err){
             console.log(err)
