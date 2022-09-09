@@ -6,6 +6,7 @@ const todoRoutes = require('./routes/todos')
 const itemsRoutes = require('./routes/items')
 
 
+
 require('dotenv').config({path: './config/.env'})
 
 connectDB()
@@ -18,8 +19,8 @@ app.use(express.json())
 app.use('/', homeRoutes)
 app.use('/todos', todoRoutes)
 app.use('/items', itemsRoutes)
+app.use('/edit', todoRoutes)
 
-app.use('/edit/:id', todoRoutes)
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')

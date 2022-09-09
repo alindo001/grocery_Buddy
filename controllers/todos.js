@@ -60,15 +60,15 @@ module.exports = {
         }
     },
     getEdit: async (req,res)=>{
-        res.render('items.ejs')
-        // try{
-        //     const todoItems = await Todo.findOne({
-        //         _id:req.body.todoIdFromJSFile
-        //     })
-        //     res.render('edit', {todos: todoItems})
-        // }catch(err){
-        //     console.log(err)
-        // }
+      
+        
+        try{
+            const todoItems = await Todo.findById(req.params.id)            
+            res.render('edit.ejs', {todos: todoItems, price:todoItems.price, storeName: todoItems.storeName, _id:todoItems._id})
+            console.log(todoItems)
+        }catch(err){
+            console.log(err)
+        }
     },
 
 

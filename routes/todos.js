@@ -4,15 +4,13 @@ const todosController = require('../controllers/todos')
 
 router.get('/', todosController.getTodos)
 
-router.put("/edit/:id", todosController.getEdit)
+router.get('/edit/:id', todosController.getEdit)
 
 router.post('/createTodo', todosController.createTodo)
 
 router.put('/markComplete', todosController.markComplete)
 
 router.put('/markIncomplete', todosController.markIncomplete)
-
-
 
 router.delete('/deleteTodo', todosController.deleteTodo)
 
