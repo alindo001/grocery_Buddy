@@ -37,22 +37,35 @@
     </form>
     <br>
 </div>
-<div class="container center">
 
+<table class="centered">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Store Name</th>
+            <th>Price</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
     
-    <ul>
+    
         <% todos.forEach( (el,i) => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span data-id='<%=el._id%>'> <%= el.todo%></span>
-                <span> <%= el.storeName %></span>
-                <span>Price: $<%= el.price%></span>
-                <a href="/todos/edit/<%= el._id %>"class="btn-float btn btn-small editor"><i class="material-icons fa-edit fas"></i></a>
-                <span class='del'><i class="material-icons">delete</i></span>
-            </li>
+            <tr class='todoItem' data-id='<%=el._id%>'>
+              
+                <td data-id='<%=el._id%>'> <%= el.todo%></td>
+                <td> <%= el.storeName %></td>
+                <td>$<%= el.price%></td>
+                <td><a href="/todos/edit/<%= el._id %>"class="btn-float btn btn-small editor"><i class="material-icons fa-edit fas"></i></a></td>
+                <td class='del'><i class="material-icons">delete</i></td>
+            </tr>
             <% }) %>    
-        </ul>
-    </div>
-        
+      
+
+</tbody>
+</table>       
+
         <script src="js/main.js"></script>
         <!-- JavaScript Bundle with Popper -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
