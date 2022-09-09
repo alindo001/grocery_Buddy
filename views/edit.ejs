@@ -22,7 +22,7 @@
 
 <div class="container center input-field">
     <form action="/todos/edit/<%= _id %>?_method=PUT" method='POST' class="container ">
-        <input type="text" placeholder="Eggs" name='todoItem' value="Eggs">
+        <input type="text" placeholder="Enter New Item Name" name='todoItem' value="<%= todos %>">
         <!-- <select class="icons"> -->
         <select class="icons" type="text" placeholder="Enter Store Name" name='storeName'>
             <option value="<%= storeName %>"><%= storeName %></option>
@@ -32,8 +32,8 @@
             <option value="Walmart" data-icon="https://www.freepnglogos.com/uploads/walmart-logo-24.jpg">Walmart</option>
         </select>
         <input type="number" placeholder="Enter New Price" value="<%= price %>" name="price" step="00.01">
-        <button type="submit" class="btn waves-effect waves-light"><i>Edit</i></button>
-        <a href="/todos" class="btn orange">Cancel</a>
+        <button type="submit" class="btn waves-effect waves-light"><i class="material-icons">edit</i></button>
+        <a href="/todos" class="btn red">Cancel</a>
     </form>
     <br>
 </div>

@@ -4,7 +4,7 @@ const Todo = require('../models/Todo')
 module.exports = {
     getTodos: async (req,res)=>{
         try{
-            const todoItems = await Todo.find().sort({price:!"desc"})
+            const todoItems = await Todo.find().sort({price:""})
             res.render('todos.ejs', {todos: todoItems})
         }catch(err){
             console.log(err)
@@ -14,8 +14,7 @@ module.exports = {
         try{
             await Todo.create(
                 {
-                todo: 
-                req.body.todoItem, 
+                todo: req.body.todoItem, 
                 storeName: req.body.storeName,
                 price:req.body.price
             })
@@ -60,7 +59,12 @@ module.exports = {
     getEdit: async (req,res)=>{
         try{
             const todoItems = await Todo.findById(req.params.id)            
-            res.render('edit.ejs', {todos: todoItems, price:todoItems.price, storeName: todoItems.storeName, _id:todoItems._id})
+            res.render('edit.ejs', {
+                todos: todoItems.todo, 
+                price:todoItems.price, 
+                storeName: todoItems.storeName,
+                 _id:todoItems._id
+            })
         }catch(err){
             console.log(err)
         }
@@ -68,8 +72,13 @@ module.exports = {
     editItem: async (req, res) => {
         try{
             let item = await Todo.findByIdAndUpdate(req.params.id,{
+                todo:req.body.todoItem,
                 price: req.body.price,
+                storeName:req.body.storeName,
+              
+
             })
+            console.log(item)
             console.log("Price Updated")
             res.redirect('/todos')
         }catch(err){
