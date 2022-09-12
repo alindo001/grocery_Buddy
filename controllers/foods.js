@@ -4,8 +4,8 @@ const Food = require('../models/Food')
 module.exports = {
     getItems: async (req,res)=>{
         try{
-            const todoItems = await Food.find().sort({price:""})
-            res.render('food.ejs', {todos: todoItems})
+            const foodItems = await Food.find().sort({price:""})
+            res.render('food.ejs', {items: foodItems})
         }catch(err){
             console.log(err)
         }
@@ -14,7 +14,7 @@ module.exports = {
         try{
             await Food.create(
                 {
-                todo: req.body.foodItem,
+                itemName: req.body.foodItem,
                 storeName: req.body.storeName,
                 price:req.body.price
             })
@@ -24,32 +24,10 @@ module.exports = {
             console.log(err)
         }
     },
-    markComplete: async (req, res)=>{
+    deleteItem: async (req, res)=>{
+        console.log(req.body.itemIdFromJSFile)
         try{
-            await Food.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-                completed: true,
-            })
-            console.log('Marked Complete')
-            res.json('Marked Complete')
-        }catch(err){
-            console.log(err)
-        }
-    },
-    markIncomplete: async (req, res)=>{
-        try{
-            await Food.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
-                completed: false
-            })
-            console.log('Marked Incomplete')
-            res.json('Marked Incomplete')
-        }catch(err){
-            console.log(err)
-        }
-    },
-    deleteTodo: async (req, res)=>{
-        console.log(req.body.todoIdFromJSFile)
-        try{
-            await Food.findOneAndDelete({_id:req.body.todoIdFromJSFile})
+            await Food.findOneAndDelete({_id:req.body.itemIdFromJSFile})
             console.log('Deleted Item')
             res.json('Deleted It')
         }catch(err){
@@ -58,12 +36,12 @@ module.exports = {
     },
     getEdit: async (req,res)=>{
         try{
-            const todoItems = await Food.findById(req.params.id)            
+            const foodItem = await Food.findById(req.params.id)            
             res.render('edit.ejs', {
-                todos: todoItems.todo, 
-                price:todoItems.price, 
-                storeName: todoItems.storeName,
-                 _id:todoItems._id
+                itemName: foodItem.itemName, 
+                price:foodItem.price, 
+                storeName: foodItem.storeName,
+                 _id:foodItem._id
             })
         }catch(err){
             console.log(err)
@@ -87,6 +65,5 @@ module.exports = {
 
 
     },
-
 
 }    

@@ -51,9 +51,9 @@
     <tbody>
     
     
-        <% todos.forEach( (el,i) => { %>
+        <% items.forEach( (el,i) => { %>
             <tr class='todoItem' data-id='<%=el._id%>'>
-                <td data-id='<%=el._id%>'> <%= el.todo%></td>
+                <td data-id='<%=el._id%>'> <%= el.itemName%></td>
                 <% if(el.storeName === "Aldi"){ %>
                     <td><img src="https://corporate.aldi.us/fileadmin/_processed_/7/6/csm_aldi_logo_2017_cbae513198.jpg" width="20px"><br><%= el.storeName %></td>
                 <%}else if(el.storeName==="Publix"){ %>

@@ -10,10 +10,6 @@ router.put('/edit/:id', foodController.editItem)
 
 router.post('/createFood', foodController.createItem)
 
-router.put('/markComplete', foodController.markComplete)
-
-router.put('/markIncomplete', foodController.markIncomplete)
-
-router.delete('/deleteTodo', foodController.deleteTodo)
+router.delete('/deleteItem', foodController.deleteItem)
 
 module.exports = router
