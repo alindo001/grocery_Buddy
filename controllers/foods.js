@@ -1,32 +1,32 @@
 const { render } = require('ejs')
-const Todo = require('../models/Todo')
+const Food = require('../models/Food')
 
 module.exports = {
-    getTodos: async (req,res)=>{
+    getItems: async (req,res)=>{
         try{
-            const todoItems = await Todo.find().sort({price:""})
-            res.render('todos.ejs', {todos: todoItems})
+            const todoItems = await Food.find().sort({price:""})
+            res.render('food.ejs', {todos: todoItems})
         }catch(err){
             console.log(err)
         }
     },
-    createTodo: async (req, res)=>{
+    createItem: async (req, res)=>{
         try{
-            await Todo.create(
+            await Food.create(
                 {
-                todo: req.body.todoItem, 
+                todo: req.body.foodItem,
                 storeName: req.body.storeName,
                 price:req.body.price
             })
             console.log('Grocery Item Has Been Added')
-            res.redirect('/todos')
+            res.redirect('/food')
         }catch(err){
             console.log(err)
         }
     },
     markComplete: async (req, res)=>{
         try{
-            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+            await Food.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
                 completed: true,
             })
             console.log('Marked Complete')
@@ -37,7 +37,7 @@ module.exports = {
     },
     markIncomplete: async (req, res)=>{
         try{
-            await Todo.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
+            await Food.findOneAndUpdate({_id:req.body.todoIdFromJSFile},{
                 completed: false
             })
             console.log('Marked Incomplete')
@@ -49,7 +49,7 @@ module.exports = {
     deleteTodo: async (req, res)=>{
         console.log(req.body.todoIdFromJSFile)
         try{
-            await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
+            await Food.findOneAndDelete({_id:req.body.todoIdFromJSFile})
             console.log('Deleted Item')
             res.json('Deleted It')
         }catch(err){
@@ -58,7 +58,7 @@ module.exports = {
     },
     getEdit: async (req,res)=>{
         try{
-            const todoItems = await Todo.findById(req.params.id)            
+            const todoItems = await Food.findById(req.params.id)            
             res.render('edit.ejs', {
                 todos: todoItems.todo, 
                 price:todoItems.price, 
@@ -71,7 +71,7 @@ module.exports = {
     },
     editItem: async (req, res) => {
         try{
-            let item = await Todo.findByIdAndUpdate(req.params.id,{
+            let item = await Food.findByIdAndUpdate(req.params.id,{
                 todo:req.body.todoItem,
                 price: req.body.price,
                 storeName:req.body.storeName,
@@ -80,7 +80,7 @@ module.exports = {
             })
             console.log(item)
             console.log("Price Updated")
-            res.redirect('/todos')
+            res.redirect('/food')
         }catch(err){
             console.err(err)
         }

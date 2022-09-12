@@ -21,8 +21,8 @@
 
 
 <div class="container center input-field">
-    <form action="/todos/createTodo" method='POST' class="container ">
-        <input type="text" placeholder="Eggs" name='todoItem' value="Eggs">
+    <form action="/food/createFood" method='POST' class="container ">
+        <input type="text" placeholder="Eggs" name='foodItem' value="Eggs">
         <!-- <select class="icons"> -->
         <select class="icons" type="text" placeholder="Enter Store Name" name='storeName'>
             <option value="" >Enter Store Name</option>
@@ -66,7 +66,7 @@
                     <td><%el.storeName%></td>
                 <%}%>  
                 <td>$<%= el.price%></td>
-                <td><a href="/todos/edit/<%= el._id %>"class="btn-float btn btn-small"><i class="material-icons fa-edit fas ">edit</i></a></td>
+                <td><a href="/food/edit/<%= el._id %>"class="btn-float btn btn-small"><i class="material-icons fa-edit fas ">edit</i></a></td>
                 <td class='del'><a class="btn red"><i class="material-icons fas fa-edit ">delete</i></a></td>
             </tr>
             <% }) %>    

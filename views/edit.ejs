@@ -21,7 +21,7 @@
 
 
 <div class="container center input-field">
-    <form action="/todos/edit/<%= _id %>?_method=PUT" method='POST' class="container ">
+    <form action="/food/edit/<%= _id %>?_method=PUT" method='POST' class="container ">
         <input type="text" placeholder="Enter New Item Name" name='todoItem' value="<%= todos %>">
         <!-- <select class="icons"> -->
         <select class="icons" type="text" placeholder="Enter Store Name" name='storeName'>
@@ -33,7 +33,7 @@
         </select>
         <input type="number" placeholder="Enter New Price" value="<%= price %>" name="price" step="00.01">
         <button type="submit" class="btn waves-effect waves-light"><i class="material-icons">edit</i></button>
-        <a href="/todos" class="btn red">Cancel</a>
+        <a href="/food" class="btn red">Cancel</a>
     </form>
     <br>
 </div>

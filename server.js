@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const connectDB = require('./config/database')
 const homeRoutes = require('./routes/home')
-const todoRoutes = require('./routes/todos')
+const foodRoutes = require('./routes/food')
 const itemsRoutes = require('./routes/items')
 const methodOverride = require('method-override')
 
@@ -19,9 +19,9 @@ app.use(express.json())
 app.use(methodOverride("_method"))
 
 app.use('/', homeRoutes)
-app.use('/todos', todoRoutes)
+app.use('/food', foodRoutes)
 app.use('/items', itemsRoutes)
-app.use('/edit', todoRoutes)
+app.use('/edit', foodRoutes)
 
  
 app.listen(process.env.PORT, ()=>{
