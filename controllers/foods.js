@@ -16,7 +16,7 @@ module.exports = {
                 {
                 itemName: req.body.foodItem,
                 storeName: req.body.storeName,
-                price:req.body.price
+                price:req.body.price,
             })
             console.log('Grocery Item Has Been Added')
             res.redirect('/food')
@@ -41,7 +41,8 @@ module.exports = {
                 itemName: foodItem.itemName, 
                 price:foodItem.price, 
                 storeName: foodItem.storeName,
-                 _id:foodItem._id
+                 _id:foodItem._id,
+                
             })
         }catch(err){
             console.log(err)
@@ -50,14 +51,11 @@ module.exports = {
     editItem: async (req, res) => {
         try{
             let item = await Food.findByIdAndUpdate(req.params.id,{
-                todo:req.body.todoItem,
+                itemName:req.body.itemName,
                 price: req.body.price,
                 storeName:req.body.storeName,
-              
-
+                createdAt:3,
             })
-            console.log(item)
-            console.log("Price Updated")
             res.redirect('/food')
         }catch(err){
             console.err(err)
