@@ -43,6 +43,7 @@
         <tr>
             <th>Item</th>
             <th>Store Name</th>
+            <th>Created/Updated</th>
             <th>Price</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -65,6 +66,7 @@
                 <%}else{%>
                     <td><%el.storeName%></td>
                 <%}%>  
+                <td><%= el.createdAt.toLocaleString() %></td>
                 <td>$<%= el.price%></td>
                 <td><a href="/food/edit/<%= el._id %>"class="btn-float btn btn-small"><i class="material-icons fa-edit fas ">edit</i></a></td>
                 <td class='del'><a class="btn red"><i class="material-icons fas fa-edit ">delete</i></a></td>
