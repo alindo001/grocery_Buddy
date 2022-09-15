@@ -54,7 +54,7 @@ module.exports = {
                 itemName:req.body.itemName,
                 price: req.body.price,
                 storeName:req.body.storeName,
-                createdAt:3,
+                createdAt:Date.now(),
             })
             res.redirect('/food')
         }catch(err){
