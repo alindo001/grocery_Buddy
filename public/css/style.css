@@ -6,7 +6,25 @@ h1{
     border: black 1px solid;
     width: 40%;
     height: 200px;
+    margin-top: 40px;
+}
+.loginBox{
+    border: black 1px solid;
+    width: 40%;
+    height: 300px;
+    margin-top: 40px;
+}
 
-    
+.signupBox{
+    border: black 1px solid;
+    width: 40%;
+    height: 400px;
+    margin-top: 40px;
+
+}
+
+
+.guestBtn{
+    margin-top: 20px;
 }
 
